@@ -1,3 +1,4 @@
+from turtle import color
 from flask import Flask, render_template
 import io
 from flask import Response
@@ -46,12 +47,12 @@ def dibuja_grafico():
     x_values = dataset['class'].unique()
     y_values = dataset['class'].value_counts().tolist()
     plt.bar(x_values, y_values)
-    plt.title('Detección de SPAM')
+    plt.title(' SPAM')
     ax = plt.subplot()                   
     ax.set_xticks(x_values)            
     ax.set_xticklabels(x_values)        
-    ax.set_xlabel('Tipo de correo')  
-    ax.set_ylabel('Cantidad de correos') 
+    ax.set_xlabel('Spam')  
+    ax.set_ylabel('Numero de correo') 
     output = io.BytesIO()
     plt.legend()
     plt.savefig(output, format='png') 
